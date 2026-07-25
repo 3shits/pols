@@ -346,46 +346,46 @@ def find_top_correlations(
         )
     )
 
-import random
-import json
-from pols.analysis.correlation import find_top_correlations
+# import random
+# import json
+# from pols.analysis.correlation import find_top_correlations
 
-random.seed(42)
+# random.seed(42)
 
-cases = []
-case_id = 1
-for i in range(20):
-    cases.append({
-        "case_id": case_id,
-        "crime_major_head_id": 1,
-        "district_id": 1 if random.random() < 0.8 else 2,
-        "case_status_id": random.choice([1, 2])
-    })
-    case_id += 1
-for i in range(20):
-    cases.append({
-        "case_id": case_id,
-        "crime_major_head_id": 2,
-        "district_id": 2 if random.random() < 0.8 else 1,
-        "case_status_id": random.choice([1, 2])
-    })
-    case_id += 1
+# cases = []
+# case_id = 1
+# for i in range(20):
+#     cases.append({
+#         "case_id": case_id,
+#         "crime_major_head_id": 1,
+#         "district_id": 1 if random.random() < 0.8 else 2,
+#         "case_status_id": random.choice([1, 2])
+#     })
+#     case_id += 1
+# for i in range(20):
+#     cases.append({
+#         "case_id": case_id,
+#         "crime_major_head_id": 2,
+#         "district_id": 2 if random.random() < 0.8 else 1,
+#         "case_status_id": random.choice([1, 2])
+#     })
+#     case_id += 1
 
-field_pairs = [
-    ("crime_major_head_id", "district_id"),
-    ("crime_major_head_id", "case_status_id"),
-]
+# field_pairs = [
+#     ("crime_major_head_id", "district_id"),
+#     ("crime_major_head_id", "case_status_id"),
+# ]
 
-print("=== enough data (40 cases) ===")
-print(json.dumps(find_top_correlations(cases, field_pairs), indent=2))
+# print("=== enough data (40 cases) ===")
+# print(json.dumps(find_top_correlations(cases, field_pairs), indent=2))
 
-small_cases = cases[:10]
-print("\n=== too few rows (10 cases) -> should say INSUFFICIENT_DATA ===")
-print(json.dumps(find_top_correlations(small_cases, field_pairs), indent=2))
+# small_cases = cases[:10]
+# print("\n=== too few rows (10 cases) -> should say INSUFFICIENT_DATA ===")
+# print(json.dumps(find_top_correlations(small_cases, field_pairs), indent=2))
 
-same_value_cases = [
-    {"case_id": i, "crime_major_head_id": 1, "district_id": 1, "case_status_id": 1}
-    for i in range(35)
-]
-print("\n=== one field always the same value (35 cases) -> should say NO_VARIATION ===")
-print(json.dumps(find_top_correlations(same_value_cases, [("crime_major_head_id", "district_id")]), indent=2))
+# same_value_cases = [
+#     {"case_id": i, "crime_major_head_id": 1, "district_id": 1, "case_status_id": 1}
+#     for i in range(35)
+# ]
+# print("\n=== one field always the same value (35 cases) -> should say NO_VARIATION ===")
+# print(json.dumps(find_top_correlations(same_value_cases, [("crime_major_head_id", "district_id")]), indent=2))

@@ -322,59 +322,59 @@ def find_spikes(cases, z_threshold=2.0):
     return spikes
 
 
-test_cases = [
-    {"district_id": 1, "crime_major_head_id": 1, "crime_registered_date": "2026-01-05"},
-    {"district_id": 1, "crime_major_head_id": 1, "crime_registered_date": "2026-02-10"},
-    {"district_id": 1, "crime_major_head_id": 1, "crime_registered_date": "2026-02-12"},
-    {"district_id": 1, "crime_major_head_id": 1, "crime_registered_date": "2026-03-01"},
-    {"district_id": 1, "crime_major_head_id": 1, "crime_registered_date": "2026-06-01"},
-    {"district_id": 1, "crime_major_head_id": 1, "crime_registered_date": "2026-06-02"},
-    {"district_id": 1, "crime_major_head_id": 1, "crime_registered_date": "2026-06-08"},
-    {"district_id": 1, "crime_major_head_id": 1, "crime_registered_date": "2026-06-15"},
-    {"district_id": 1, "crime_major_head_id": 1, "crime_registered_date": "2026-06-22"},
-    {"district_id": 1, "crime_major_head_id": 1, "crime_registered_date": "2026-06-22"},
-    {"district_id": 1, "crime_major_head_id": 1, "crime_registered_date": "2026-06-22"},
-    {"district_id": 1, "crime_major_head_id": 1, "crime_registered_date": "2026-06-22"},
-    {"district_id": 1, "crime_major_head_id": 1, "crime_registered_date": "2026-06-22"},
-]
+# test_cases = [
+#     {"district_id": 1, "crime_major_head_id": 1, "crime_registered_date": "2026-01-05"},
+#     {"district_id": 1, "crime_major_head_id": 1, "crime_registered_date": "2026-02-10"},
+#     {"district_id": 1, "crime_major_head_id": 1, "crime_registered_date": "2026-02-12"},
+#     {"district_id": 1, "crime_major_head_id": 1, "crime_registered_date": "2026-03-01"},
+#     {"district_id": 1, "crime_major_head_id": 1, "crime_registered_date": "2026-06-01"},
+#     {"district_id": 1, "crime_major_head_id": 1, "crime_registered_date": "2026-06-02"},
+#     {"district_id": 1, "crime_major_head_id": 1, "crime_registered_date": "2026-06-08"},
+#     {"district_id": 1, "crime_major_head_id": 1, "crime_registered_date": "2026-06-15"},
+#     {"district_id": 1, "crime_major_head_id": 1, "crime_registered_date": "2026-06-22"},
+#     {"district_id": 1, "crime_major_head_id": 1, "crime_registered_date": "2026-06-22"},
+#     {"district_id": 1, "crime_major_head_id": 1, "crime_registered_date": "2026-06-22"},
+#     {"district_id": 1, "crime_major_head_id": 1, "crime_registered_date": "2026-06-22"},
+#     {"district_id": 1, "crime_major_head_id": 1, "crime_registered_date": "2026-06-22"},
+# ]
 
-print("--- daily counts ---")
-for key, count in count_cases_per_day(test_cases).items():
-    print(key, "->", count)
+# print("--- daily counts ---")
+# for key, count in count_cases_per_day(test_cases).items():
+#     print(key, "->", count)
 
-print("\n--- weekly counts ---")
-weekly = count_cases_per_week(test_cases)
-for key, count in weekly.items():
-    print(key, "->", count)
+# print("\n--- weekly counts ---")
+# weekly = count_cases_per_week(test_cases)
+# for key, count in weekly.items():
+#     print(key, "->", count)
 
-print("\n--- monthly counts ---")
-for key, count in count_cases_per_month(test_cases).items():
-    print(key, "->", count)
+# print("\n--- monthly counts ---")
+# for key, count in count_cases_per_month(test_cases).items():
+#     print(key, "->", count)
 
-print("\n--- yearly counts ---")
-for key, count in count_cases_per_year(test_cases).items():
-    print(key, "->", count)
+# print("\n--- yearly counts ---")
+# for key, count in count_cases_per_year(test_cases).items():
+#     print(key, "->", count)
 
-weekly_values = list(weekly.values())
+# weekly_values = list(weekly.values())
 
-print("\n--- percentage change (weekly counts, in order) ---")
-print(percentage_change(weekly_values))
+# print("\n--- percentage change (weekly counts, in order) ---")
+# print(percentage_change(weekly_values))
 
-print("\n--- moving average (window=2) ---")
-print(moving_average(weekly_values, window=2))
+# print("\n--- moving average (window=2) ---")
+# print(moving_average(weekly_values, window=2))
 
-print("\n--- seasonal patterns (avg cases per calendar month) ---")
-print(seasonal_patterns(test_cases))
+# print("\n--- seasonal patterns (avg cases per calendar month) ---")
+# print(seasonal_patterns(test_cases))
 
-print("\n--- build_weekly_series (fills in zero-count weeks) ---")
-series = build_weekly_series(test_cases)
-for group_key, data in series.items():
-    print(group_key, data)
+# print("\n--- build_weekly_series (fills in zero-count weeks) ---")
+# series = build_weekly_series(test_cases)
+# for group_key, data in series.items():
+#     print(group_key, data)
 
-print("\n--- spikes (whole-series z-score) ---")
-for row in find_spikes(test_cases):
-    print(row)
+# print("\n--- spikes (whole-series z-score) ---")
+# for row in find_spikes(test_cases):
+#     print(row)
 
-print("\n--- spikes (rolling z-score, window=8) ---")
-for row in find_rolling_spikes(test_cases, window=8):
-    print(row)
+# print("\n--- spikes (rolling z-score, window=8) ---")
+# for row in find_rolling_spikes(test_cases, window=8):
+#     print(row)

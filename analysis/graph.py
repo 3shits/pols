@@ -242,44 +242,44 @@ def build_relationship_report(
     )
 
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
-    cases = [
-        {"case_id": 1, "location_id": 10},
-        {"case_id": 2, "location_id": 10},
-        {"case_id": 3, "location_id": 20},
-        {"case_id": 4, "location_id": 10},
-        {"case_id": 5, "location_id": 10},
-        {"case_id": 6, "location_id": 30},
-        {"case_id": 7, "location_id": 10},
-        {"case_id": 8, "location_id": 20}
-    ]
+#     cases = [
+#         {"case_id": 1, "location_id": 10},
+#         {"case_id": 2, "location_id": 10},
+#         {"case_id": 3, "location_id": 20},
+#         {"case_id": 4, "location_id": 10},
+#         {"case_id": 5, "location_id": 10},
+#         {"case_id": 6, "location_id": 30},
+#         {"case_id": 7, "location_id": 10},
+#         {"case_id": 8, "location_id": 20}
+#     ]
 
-    accused = [
-        {"case_id": 1, "person_id": 101},
-        {"case_id": 1, "person_id": 102},
-        {"case_id": 2, "person_id": 101},
-        {"case_id": 2, "person_id": 102},
-        {"case_id": 3, "person_id": 101},
-        {"case_id": 4, "person_id": 101},
-        {"case_id": 4, "person_id": 102},
-        {"case_id": 5, "person_id": 101},
-        {"case_id": 5, "person_id": 102},
-        {"case_id": 6, "person_id": 103},
-        {"case_id": 7, "person_id": 101},
-        {"case_id": 8, "person_id": 103},
-        {"case_id": 8, "person_id": 102}
-    ]
+#     accused = [
+#         {"case_id": 1, "person_id": 101},
+#         {"case_id": 1, "person_id": 102},
+#         {"case_id": 2, "person_id": 101},
+#         {"case_id": 2, "person_id": 102},
+#         {"case_id": 3, "person_id": 101},
+#         {"case_id": 4, "person_id": 101},
+#         {"case_id": 4, "person_id": 102},
+#         {"case_id": 5, "person_id": 101},
+#         {"case_id": 5, "person_id": 102},
+#         {"case_id": 6, "person_id": 103},
+#         {"case_id": 7, "person_id": 101},
+#         {"case_id": 8, "person_id": 103},
+#         {"case_id": 8, "person_id": 102}
+#     ]
 
-    report = build_relationship_report(
-        accused=accused,
-        cases=cases,
-        repeat_threshold=3
-    )
+#     report = build_relationship_report(
+#         accused=accused,
+#         cases=cases,
+#         repeat_threshold=3
+#     )
 
-    print(
-        json.dumps(
-            report,
-            indent=4
-        )
-    )
+#     print(
+#         json.dumps(
+#             report,
+#             indent=4
+#         )
+#     )

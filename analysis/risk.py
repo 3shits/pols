@@ -805,118 +805,118 @@ def build_risk_report(
     )
 
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
-    import json
-    import random
+#     import json
+#     import random
 
-    random.seed(7)
+#     random.seed(7)
 
-    cases = []
+#     cases = []
 
-    case_id = 1
+#     case_id = 1
 
-    for week in range(20):
+#     for week in range(20):
 
-        count = (
-            2
-            + week // 2
-            + random.randint(
-                0,
-                1
-            )
-        )
+#         count = (
+#             2
+#             + week // 2
+#             + random.randint(
+#                 0,
+#                 1
+#             )
+#         )
 
-        for _ in range(count):
+#         for _ in range(count):
 
-            day_offset = (
-                week * 7
-                + random.randint(
-                    0,
-                    6
-                )
-            )
+#             day_offset = (
+#                 week * 7
+#                 + random.randint(
+#                     0,
+#                     6
+#                 )
+#             )
 
-            date = (
-                "2026-"
-                f"{1 + day_offset // 30:02d}-"
-                f"{1 + day_offset % 28:02d}"
-            )
+#             date = (
+#                 "2026-"
+#                 f"{1 + day_offset // 30:02d}-"
+#                 f"{1 + day_offset % 28:02d}"
+#             )
 
-            cases.append({
-                "case_id":
-                    case_id,
+#             cases.append({
+#                 "case_id":
+#                     case_id,
 
-                "district_id":
-                    1,
+#                 "district_id":
+#                     1,
 
-                "crime_major_head_id":
-                    1,
+#                 "crime_major_head_id":
+#                     1,
 
-                "crime_registered_date":
-                    date,
+#                 "crime_registered_date":
+#                     date,
 
-                "case_status_id":
-                    random.choice(
-                        [
-                            1,
-                            1,
-                            2
-                        ]
-                    )
-            })
+#                 "case_status_id":
+#                     random.choice(
+#                         [
+#                             1,
+#                             1,
+#                             2
+#                         ]
+#                     )
+#             })
 
-            case_id += 1
+#             case_id += 1
 
-    for week in range(20):
+#     for week in range(20):
 
-        for _ in range(3):
+#         for _ in range(3):
 
-            day_offset = (
-                week * 7
-                + random.randint(
-                    0,
-                    6
-                )
-            )
+#             day_offset = (
+#                 week * 7
+#                 + random.randint(
+#                     0,
+#                     6
+#                 )
+#             )
 
-            date = (
-                "2026-"
-                f"{1 + day_offset // 30:02d}-"
-                f"{1 + day_offset % 28:02d}"
-            )
+#             date = (
+#                 "2026-"
+#                 f"{1 + day_offset // 30:02d}-"
+#                 f"{1 + day_offset % 28:02d}"
+#             )
 
-            cases.append({
-                "case_id":
-                    case_id,
+#             cases.append({
+#                 "case_id":
+#                     case_id,
 
-                "district_id":
-                    2,
+#                 "district_id":
+#                     2,
 
-                "crime_major_head_id":
-                    1,
+#                 "crime_major_head_id":
+#                     1,
 
-                "crime_registered_date":
-                    date,
+#                 "crime_registered_date":
+#                     date,
 
-                "case_status_id":
-                    2
-            })
+#                 "case_status_id":
+#                     2
+#             })
 
-            case_id += 1
+#             case_id += 1
 
-    report = build_risk_report(
-        cases,
-        unresolved_status_ids={
-            1
-        },
-        weeks_ahead=4
-    )
+#     report = build_risk_report(
+#         cases,
+#         unresolved_status_ids={
+#             1
+#         },
+#         weeks_ahead=4
+#     )
 
-    print(
-        json.dumps(
-            report,
-            indent=4
-        )
-    )
+#     print(
+#         json.dumps(
+#             report,
+#             indent=4
+#         )
+#     )
 

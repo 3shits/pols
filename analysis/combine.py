@@ -1067,252 +1067,252 @@ def build_person_report(
     return enriched
 
 
-# ============================================================
-# TEST DATA
-# ============================================================
+# # ============================================================
+# # TEST DATA
+# # ============================================================
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
-    random.seed(
-        7
-    )
+#     random.seed(
+#         7
+#     )
 
-    cases = []
+#     cases = []
 
-    case_id = 1
+#     case_id = 1
 
-    # --------------------------------------------------------
-    # DISTRICT 1
-    # Rising crime trend
-    # --------------------------------------------------------
+#     # --------------------------------------------------------
+#     # DISTRICT 1
+#     # Rising crime trend
+#     # --------------------------------------------------------
 
-    for district_id, base_count, growth in [
-        (1, 3, 1),
-        (2, 2, 0)
-    ]:
+#     for district_id, base_count, growth in [
+#         (1, 3, 1),
+#         (2, 2, 0)
+#     ]:
 
-        for week in range(
-            20
-        ):
+#         for week in range(
+#             20
+#         ):
 
-            if growth:
+#             if growth:
 
-                count = (
-                    base_count
-                    +
-                    week // 2
-                    +
-                    random.randint(
-                        0,
-                        1
-                    )
-                )
+#                 count = (
+#                     base_count
+#                     +
+#                     week // 2
+#                     +
+#                     random.randint(
+#                         0,
+#                         1
+#                     )
+#                 )
 
-            else:
+#             else:
 
-                count = (
-                    base_count
-                    +
-                    random.randint(
-                        0,
-                        1
-                    )
-                )
+#                 count = (
+#                     base_count
+#                     +
+#                     random.randint(
+#                         0,
+#                         1
+#                     )
+#                 )
 
-            for _ in range(
-                count
-            ):
+#             for _ in range(
+#                 count
+#             ):
 
-                day_offset = (
-                    week * 7
-                    +
-                    random.randint(
-                        0,
-                        6
-                    )
-                )
+#                 day_offset = (
+#                     week * 7
+#                     +
+#                     random.randint(
+#                         0,
+#                         6
+#                     )
+#                 )
 
-                # Keep dates valid for testing
-                start_date = date(
-                    2026,
-                    1,
-                    1
-                )
+#                 # Keep dates valid for testing
+#                 start_date = date(
+#                     2026,
+#                     1,
+#                     1
+#                 )
 
-                case_date = (
-                    start_date
-                    +
-                    timedelta(
-                        days=day_offset
-                    )
-                )
+#                 case_date = (
+#                     start_date
+#                     +
+#                     timedelta(
+#                         days=day_offset
+#                     )
+#                 )
 
-                cases.append({
+#                 cases.append({
 
-                    "case_id":
-                        case_id,
+#                     "case_id":
+#                         case_id,
 
-                    "district_id":
-                        district_id,
+#                     "district_id":
+#                         district_id,
 
-                    "crime_major_head_id":
-                        1,
+#                     "crime_major_head_id":
+#                         1,
 
-                    "crime_registered_date":
-                        case_date.isoformat(),
+#                     "crime_registered_date":
+#                         case_date.isoformat(),
 
-                    "latitude":
-                        12.97
-                        +
-                        district_id
-                        *
-                        0.1,
+#                     "latitude":
+#                         12.97
+#                         +
+#                         district_id
+#                         *
+#                         0.1,
 
-                    "longitude":
-                        77.59
-                        +
-                        district_id
-                        *
-                        0.1,
+#                     "longitude":
+#                         77.59
+#                         +
+#                         district_id
+#                         *
+#                         0.1,
 
-                    "case_status_id":
-                        random.choice(
-                            [
-                                1,
-                                1,
-                                2
-                            ]
-                        )
-                })
+#                     "case_status_id":
+#                         random.choice(
+#                             [
+#                                 1,
+#                                 1,
+#                                 2
+#                             ]
+#                         )
+#                 })
 
-                case_id += 1
+#                 case_id += 1
 
-    # --------------------------------------------------------
-    # ACCUSED PERSON DATA
-    # --------------------------------------------------------
+#     # --------------------------------------------------------
+#     # ACCUSED PERSON DATA
+#     # --------------------------------------------------------
 
-    accused = []
+#     accused = []
 
-    district_1_case_ids = [
+#     district_1_case_ids = [
 
-        case["case_id"]
+#         case["case_id"]
 
-        for case in cases
+#         for case in cases
 
-        if case[
-            "district_id"
-        ] == 1
+#         if case[
+#             "district_id"
+#         ] == 1
 
-    ][:8]
+#     ][:8]
 
-    for cid in district_1_case_ids:
+#     for cid in district_1_case_ids:
 
-        accused.append({
+#         accused.append({
 
-            "case_id":
-                cid,
+#             "case_id":
+#                 cid,
 
-            "person_id":
-                101
-        })
+#             "person_id":
+#                 101
+#         })
 
-        accused.append({
+#         accused.append({
 
-            "case_id":
-                cid,
+#             "case_id":
+#                 cid,
 
-            "person_id":
-                102
-        })
+#             "person_id":
+#                 102
+#         })
 
-    # --------------------------------------------------------
-    # POPULATION
-    # --------------------------------------------------------
+#     # --------------------------------------------------------
+#     # POPULATION
+#     # --------------------------------------------------------
 
-    population_by_district = {
+#     population_by_district = {
 
-        1:
-            500000,
+#         1:
+#             500000,
 
-        2:
-            300000
-    }
+#         2:
+#             300000
+#     }
 
-    # --------------------------------------------------------
-    # SOCIO-ECONOMIC DATA
-    # --------------------------------------------------------
+#     # --------------------------------------------------------
+#     # SOCIO-ECONOMIC DATA
+#     # --------------------------------------------------------
 
-    socioeconomic_data = {
+#     socioeconomic_data = {
 
-        1: {
-            "urbanization_pct":
-                85,
+#         1: {
+#             "urbanization_pct":
+#                 85,
 
-            "unemployment_rate":
-                9.0
-        },
+#             "unemployment_rate":
+#                 9.0
+#         },
 
-        2: {
-            "urbanization_pct":
-                30,
+#         2: {
+#             "urbanization_pct":
+#                 30,
 
-            "unemployment_rate":
-                4.0
-        }
-    }
+#             "unemployment_rate":
+#                 4.0
+#         }
+#     }
 
-    # --------------------------------------------------------
-    # RUN PART 7
-    # --------------------------------------------------------
+#     # --------------------------------------------------------
+#     # RUN PART 7
+#     # --------------------------------------------------------
 
-    report = (
-        build_district_crime_report(
+#     report = (
+#         build_district_crime_report(
 
-            cases,
+#             cases,
 
-            accused,
+#             accused,
 
-            population_by_district,
+#             population_by_district,
 
-            socioeconomic_data,
+#             socioeconomic_data,
 
-            unresolved_status_ids={
-                1
-            },
+#             unresolved_status_ids={
+#                 1
+#             },
 
-            weeks_ahead=4
-        )
-    )
+#             weeks_ahead=4
+#         )
+#     )
 
-    print(
-        "=== DISTRICT x CRIME REPORT ==="
-    )
+#     print(
+#         "=== DISTRICT x CRIME REPORT ==="
+#     )
 
-    print(
-        json.dumps(
-            report,
-            indent=2
-        )
-    )
+#     print(
+#         json.dumps(
+#             report,
+#             indent=2
+#         )
+#     )
 
-    # --------------------------------------------------------
-    # PERSON REPORT
-    # --------------------------------------------------------
+#     # --------------------------------------------------------
+#     # PERSON REPORT
+#     # --------------------------------------------------------
 
-    person_report = (
-        build_person_report(
-            cases,
-            accused
-        )
-    )
+#     person_report = (
+#         build_person_report(
+#             cases,
+#             accused
+#         )
+#     )
 
-    print(
-        "\n=== PERSON REPORT ==="
-    )
+#     print(
+#         "\n=== PERSON REPORT ==="
+#     )
 
-    print(
-        json.dumps(
-            person_report,
-            indent=2
-        )
-    )
+#     print(
+#         json.dumps(
+#             person_report,
+#             indent=2
+#         )
+#     )

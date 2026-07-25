@@ -594,176 +594,292 @@ def sociological_crime_analysis(
         )
     }
 
-cases = [
-    {"case_id": 1, "district_id": 1},
-    {"case_id": 2, "district_id": 2},
-    {"case_id": 3, "district_id": 3},
-    {"case_id": 4, "district_id": 4},
-    {"case_id": 5, "district_id": 5},
-    {"case_id": 6, "district_id": 6},
-    {"case_id": 7, "district_id": 7},
-    {"case_id": 8, "district_id": 8},
-    {"case_id": 9, "district_id": 9},
-    {"case_id": 10, "district_id": 10},
-    {"case_id": 11, "district_id": 11},
-    {"case_id": 12, "district_id": 12},
-    {"case_id": 13, "district_id": 13},
-    {"case_id": 14, "district_id": 14},
-    {"case_id": 15, "district_id": 15}
-]
+# if __name__ == "__main__":
+#     import json
+
+#     # ============================================================
+#     # TEST DATA
+#     # ============================================================
+
+#     # Multiple crime cases for 15 districts.
+#     # Higher case counts are intentionally given to districts
+#     # with higher poverty and unemployment.
+#     cases = [
+#         # District 1 - High crime
+#         {"case_id": 1, "district_id": 1},
+#         {"case_id": 2, "district_id": 1},
+#         {"case_id": 3, "district_id": 1},
+#         {"case_id": 4, "district_id": 1},
+#         {"case_id": 5, "district_id": 1},
+#         {"case_id": 6, "district_id": 1},
+#         {"case_id": 7, "district_id": 1},
+#         {"case_id": 8, "district_id": 1},
+#         {"case_id": 9, "district_id": 1},
+#         {"case_id": 10, "district_id": 1},
+
+#         # District 2
+#         {"case_id": 11, "district_id": 2},
+#         {"case_id": 12, "district_id": 2},
+#         {"case_id": 13, "district_id": 2},
+#         {"case_id": 14, "district_id": 2},
+#         {"case_id": 15, "district_id": 2},
+#         {"case_id": 16, "district_id": 2},
+#         {"case_id": 17, "district_id": 2},
+#         {"case_id": 18, "district_id": 2},
+
+#         # District 3
+#         {"case_id": 19, "district_id": 3},
+#         {"case_id": 20, "district_id": 3},
+#         {"case_id": 21, "district_id": 3},
+#         {"case_id": 22, "district_id": 3},
+#         {"case_id": 23, "district_id": 3},
+#         {"case_id": 24, "district_id": 3},
+#         {"case_id": 25, "district_id": 3},
+
+#         # District 4
+#         {"case_id": 26, "district_id": 4},
+#         {"case_id": 27, "district_id": 4},
+#         {"case_id": 28, "district_id": 4},
+#         {"case_id": 29, "district_id": 4},
+#         {"case_id": 30, "district_id": 4},
+#         {"case_id": 31, "district_id": 4},
+
+#         # District 5
+#         {"case_id": 32, "district_id": 5},
+#         {"case_id": 33, "district_id": 5},
+#         {"case_id": 34, "district_id": 5},
+#         {"case_id": 35, "district_id": 5},
+#         {"case_id": 36, "district_id": 5},
+
+#         # District 6
+#         {"case_id": 37, "district_id": 6},
+#         {"case_id": 38, "district_id": 6},
+#         {"case_id": 39, "district_id": 6},
+#         {"case_id": 40, "district_id": 6},
+#         {"case_id": 41, "district_id": 6},
+
+#         # District 7
+#         {"case_id": 42, "district_id": 7},
+#         {"case_id": 43, "district_id": 7},
+#         {"case_id": 44, "district_id": 7},
+#         {"case_id": 45, "district_id": 7},
+
+#         # District 8
+#         {"case_id": 46, "district_id": 8},
+#         {"case_id": 47, "district_id": 8},
+#         {"case_id": 48, "district_id": 8},
+#         {"case_id": 49, "district_id": 8},
+
+#         # District 9
+#         {"case_id": 50, "district_id": 9},
+#         {"case_id": 51, "district_id": 9},
+#         {"case_id": 52, "district_id": 9},
+
+#         # District 10
+#         {"case_id": 53, "district_id": 10},
+#         {"case_id": 54, "district_id": 10},
+#         {"case_id": 55, "district_id": 10},
+
+#         # District 11
+#         {"case_id": 56, "district_id": 11},
+#         {"case_id": 57, "district_id": 11},
+
+#         # District 12
+#         {"case_id": 58, "district_id": 12},
+#         {"case_id": 59, "district_id": 12},
+
+#         # District 13
+#         {"case_id": 60, "district_id": 13},
+#         {"case_id": 61, "district_id": 13},
+
+#         # District 14
+#         {"case_id": 62, "district_id": 14},
+
+#         # District 15
+#         {"case_id": 63, "district_id": 15},
+#     ]
 
 
-population_by_district = {
-    1: 500000,
-    2: 600000,
-    3: 450000,
-    4: 700000,
-    5: 550000,
-    6: 800000,
-    7: 650000,
-    8: 400000,
-    9: 900000,
-    10: 750000,
-    11: 480000,
-    12: 620000,
-    13: 580000,
-    14: 720000,
-    15: 520000
-}
+#     # ============================================================
+#     # POPULATION DATA
+#     # ============================================================
+
+#     population_by_district = {
+#         1: 500000,
+#         2: 600000,
+#         3: 450000,
+#         4: 700000,
+#         5: 550000,
+#         6: 800000,
+#         7: 650000,
+#         8: 400000,
+#         9: 900000,
+#         10: 750000,
+#         11: 480000,
+#         12: 620000,
+#         13: 580000,
+#         14: 720000,
+#         15: 520000
+#     }
 
 
-socioeconomic_data = {
-    1: {
-        "urbanization_pct": 85,
-        "unemployment_rate": 8.5,
-        "literacy_rate": 78,
-        "population_density": 5000,
-        "poverty_rate": 15
-    },
+#     # ============================================================
+#     # SOCIO-ECONOMIC DATA
+#     # ============================================================
 
-    2: {
-        "urbanization_pct": 80,
-        "unemployment_rate": 7.8,
-        "literacy_rate": 82,
-        "population_density": 4500,
-        "poverty_rate": 13
-    },
+#     # The data is intentionally designed so that:
+#     #
+#     # - Districts with higher poverty generally have more crime.
+#     # - Districts with higher unemployment generally have more crime.
+#     # - Population density varies independently.
+#     # - Literacy rate varies independently.
+#     #
+#     # IMPORTANT:
+#     # This is TEST DATA only.
+#     # It does NOT prove that these factors cause crime.
 
-    3: {
-        "urbanization_pct": 75,
-        "unemployment_rate": 7.2,
-        "literacy_rate": 85,
-        "population_density": 4000,
-        "poverty_rate": 12
-    },
+#     socioeconomic_data = {
 
-    4: {
-        "urbanization_pct": 70,
-        "unemployment_rate": 6.8,
-        "literacy_rate": 88,
-        "population_density": 3500,
-        "poverty_rate": 10
-    },
+#         1: {
+#             "urbanization_pct": 85,
+#             "unemployment_rate": 15.0,
+#             "literacy_rate": 78,
+#             "population_density": 5000,
+#             "poverty_rate": 35
+#         },
 
-    5: {
-        "urbanization_pct": 65,
-        "unemployment_rate": 6.5,
-        "literacy_rate": 80,
-        "population_density": 3000,
-        "poverty_rate": 14
-    },
+#         2: {
+#             "urbanization_pct": 80,
+#             "unemployment_rate": 14.0,
+#             "literacy_rate": 82,
+#             "population_density": 4500,
+#             "poverty_rate": 32
+#         },
 
-    6: {
-        "urbanization_pct": 60,
-        "unemployment_rate": 6.0,
-        "literacy_rate": 90,
-        "population_density": 2800,
-        "poverty_rate": 9
-    },
+#         3: {
+#             "urbanization_pct": 75,
+#             "unemployment_rate": 13.0,
+#             "literacy_rate": 85,
+#             "population_density": 4000,
+#             "poverty_rate": 30
+#         },
 
-    7: {
-        "urbanization_pct": 55,
-        "unemployment_rate": 5.8,
-        "literacy_rate": 86,
-        "population_density": 2500,
-        "poverty_rate": 11
-    },
+#         4: {
+#             "urbanization_pct": 70,
+#             "unemployment_rate": 12.0,
+#             "literacy_rate": 88,
+#             "population_density": 3500,
+#             "poverty_rate": 28
+#         },
 
-    8: {
-        "urbanization_pct": 50,
-        "unemployment_rate": 5.2,
-        "literacy_rate": 92,
-        "population_density": 2200,
-        "poverty_rate": 8
-    },
+#         5: {
+#             "urbanization_pct": 65,
+#             "unemployment_rate": 11.0,
+#             "literacy_rate": 80,
+#             "population_density": 3000,
+#             "poverty_rate": 25
+#         },
 
-    9: {
-        "urbanization_pct": 45,
-        "unemployment_rate": 4.8,
-        "literacy_rate": 88,
-        "population_density": 2000,
-        "poverty_rate": 10
-    },
+#         6: {
+#             "urbanization_pct": 60,
+#             "unemployment_rate": 10.0,
+#             "literacy_rate": 90,
+#             "population_density": 2800,
+#             "poverty_rate": 22
+#         },
 
-    10: {
-        "urbanization_pct": 40,
-        "unemployment_rate": 4.5,
-        "literacy_rate": 94,
-        "population_density": 1800,
-        "poverty_rate": 7
-    },
+#         7: {
+#             "urbanization_pct": 55,
+#             "unemployment_rate": 9.0,
+#             "literacy_rate": 86,
+#             "population_density": 2500,
+#             "poverty_rate": 20
+#         },
 
-    11: {
-        "urbanization_pct": 35,
-        "unemployment_rate": 4.2,
-        "literacy_rate": 83,
-        "population_density": 1600,
-        "poverty_rate": 12
-    },
+#         8: {
+#             "urbanization_pct": 50,
+#             "unemployment_rate": 8.0,
+#             "literacy_rate": 92,
+#             "population_density": 2200,
+#             "poverty_rate": 18
+#         },
 
-    12: {
-        "urbanization_pct": 30,
-        "unemployment_rate": 3.8,
-        "literacy_rate": 91,
-        "population_density": 1400,
-        "poverty_rate": 9
-    },
+#         9: {
+#             "urbanization_pct": 45,
+#             "unemployment_rate": 7.0,
+#             "literacy_rate": 88,
+#             "population_density": 2000,
+#             "poverty_rate": 15
+#         },
 
-    13: {
-        "urbanization_pct": 25,
-        "unemployment_rate": 3.5,
-        "literacy_rate": 87,
-        "population_density": 1200,
-        "poverty_rate": 13
-    },
+#         10: {
+#             "urbanization_pct": 40,
+#             "unemployment_rate": 6.0,
+#             "literacy_rate": 94,
+#             "population_density": 1800,
+#             "poverty_rate": 13
+#         },
 
-    14: {
-        "urbanization_pct": 20,
-        "unemployment_rate": 3.0,
-        "literacy_rate": 95,
-        "population_density": 900,
-        "poverty_rate": 6
-    },
+#         11: {
+#             "urbanization_pct": 35,
+#             "unemployment_rate": 5.0,
+#             "literacy_rate": 83,
+#             "population_density": 1600,
+#             "poverty_rate": 11
+#         },
 
-    15: {
-        "urbanization_pct": 15,
-        "unemployment_rate": 2.8,
-        "literacy_rate": 89,
-        "population_density": 700,
-        "poverty_rate": 8
-    }
-}
-report = sociological_crime_analysis(
-    cases,
-    population_by_district,
-    socioeconomic_data
-)
+#         12: {
+#             "urbanization_pct": 30,
+#             "unemployment_rate": 4.5,
+#             "literacy_rate": 91,
+#             "population_density": 1400,
+#             "poverty_rate": 9
+#         },
 
-import json
+#         13: {
+#             "urbanization_pct": 25,
+#             "unemployment_rate": 4.0,
+#             "literacy_rate": 87,
+#             "population_density": 1200,
+#             "poverty_rate": 7
+#         },
 
-print(
-    json.dumps(
-        report,
-        indent=4
-    )
-)
+#         14: {
+#             "urbanization_pct": 20,
+#             "unemployment_rate": 3.5,
+#             "literacy_rate": 95,
+#             "population_density": 900,
+#             "poverty_rate": 5
+#         },
+
+#         15: {
+#             "urbanization_pct": 15,
+#             "unemployment_rate": 3.0,
+#             "literacy_rate": 89,
+#             "population_density": 700,
+#             "poverty_rate": 3
+#         }
+#     }
+
+
+#     # ============================================================
+#     # RUN SOCIOLOGICAL CRIME ANALYSIS
+#     # ============================================================
+
+#     report = sociological_crime_analysis(
+#         cases,
+#         population_by_district,
+#         socioeconomic_data
+#     )
+
+
+#     # ============================================================
+#     # PRINT FINAL OUTPUT
+#     # ============================================================
+
+#     print(
+#         json.dumps(
+#             report,
+#             indent=4
+#         )
+#     )
