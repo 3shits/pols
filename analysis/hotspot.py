@@ -906,230 +906,230 @@ def build_hotspot_report(
 # TEST DATA
 # ============================================================
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
-    import json
-    import random
+#     import json
+#     import random
 
-    random.seed(10)
+#     random.seed(10)
 
-    cases = []
+#     cases = []
 
-    case_id = 1
-
-
-    # ========================================================
-    # HOTSPOT 1
-    #
-    # District 1
-    # Crime Type 1
-    # 20 nearby cases
-    # Mostly evening
-    # ========================================================
-
-    for i in range(20):
-
-        cases.append({
-
-            "case_id":
-                case_id,
-
-            "district_id":
-                1,
-
-            "crime_major_head_id":
-                1,
-
-            "crime_registered_date":
-                f"2026-01-{1 + i:02d}",
-
-            "hour":
-                random.choice(
-                    [18, 19, 20]
-                ),
-
-            "latitude":
-                22.5726
-                +
-                random.uniform(
-                    -0.002,
-                    0.002
-                ),
-
-            "longitude":
-                88.3639
-                +
-                random.uniform(
-                    -0.002,
-                    0.002
-                )
-        })
-
-        case_id += 1
+#     case_id = 1
 
 
-    # ========================================================
-    # HOTSPOT 2
-    #
-    # District 1
-    # Crime Type 1
-    # Another location
-    # Mostly night
-    # ========================================================
+#     # ========================================================
+#     # HOTSPOT 1
+#     #
+#     # District 1
+#     # Crime Type 1
+#     # 20 nearby cases
+#     # Mostly evening
+#     # ========================================================
 
-    for i in range(10):
+#     for i in range(20):
 
-        cases.append({
+#         cases.append({
 
-            "case_id":
-                case_id,
+#             "case_id":
+#                 case_id,
 
-            "district_id":
-                1,
+#             "district_id":
+#                 1,
 
-            "crime_major_head_id":
-                1,
+#             "crime_major_head_id":
+#                 1,
 
-            "crime_registered_date":
-                f"2026-02-{1 + i:02d}",
+#             "crime_registered_date":
+#                 f"2026-01-{1 + i:02d}",
 
-            "hour":
-                random.choice(
-                    [21, 22, 23]
-                ),
+#             "hour":
+#                 random.choice(
+#                     [18, 19, 20]
+#                 ),
 
-            "latitude":
-                22.5850
-                +
-                random.uniform(
-                    -0.002,
-                    0.002
-                ),
+#             "latitude":
+#                 22.5726
+#                 +
+#                 random.uniform(
+#                     -0.002,
+#                     0.002
+#                 ),
 
-            "longitude":
-                88.3750
-                +
-                random.uniform(
-                    -0.002,
-                    0.002
-                )
-        })
+#             "longitude":
+#                 88.3639
+#                 +
+#                 random.uniform(
+#                     -0.002,
+#                     0.002
+#                 )
+#         })
 
-        case_id += 1
-
-
-    # ========================================================
-    # DISTRICT 2
-    #
-    # Different district
-    # Same crime type
-    # Mostly morning
-    # ========================================================
-
-    for i in range(10):
-
-        cases.append({
-
-            "case_id":
-                case_id,
-
-            "district_id":
-                2,
-
-            "crime_major_head_id":
-                1,
-
-            "crime_registered_date":
-                f"2026-02-{1 + i:02d}",
-
-            "hour":
-                random.choice(
-                    [8, 9, 10]
-                ),
-
-            "latitude":
-                22.5200
-                +
-                random.uniform(
-                    -0.002,
-                    0.002
-                ),
-
-            "longitude":
-                88.3400
-                +
-                random.uniform(
-                    -0.002,
-                    0.002
-                )
-        })
-
-        case_id += 1
+#         case_id += 1
 
 
-    # ========================================================
-    # SCATTERED NOISE CASES
-    #
-    # These cases are far apart and should not
-    # normally form a hotspot.
-    # ========================================================
+#     # ========================================================
+#     # HOTSPOT 2
+#     #
+#     # District 1
+#     # Crime Type 1
+#     # Another location
+#     # Mostly night
+#     # ========================================================
 
-    for i in range(10):
+#     for i in range(10):
 
-        cases.append({
+#         cases.append({
 
-            "case_id":
-                case_id,
+#             "case_id":
+#                 case_id,
 
-            "district_id":
-                1,
+#             "district_id":
+#                 1,
 
-            "crime_major_head_id":
-                1,
+#             "crime_major_head_id":
+#                 1,
 
-            "crime_registered_date":
-                "2026-03-01",
+#             "crime_registered_date":
+#                 f"2026-02-{1 + i:02d}",
 
-            "hour":
-                random.randint(
-                    0,
-                    23
-                ),
+#             "hour":
+#                 random.choice(
+#                     [21, 22, 23]
+#                 ),
 
-            "latitude":
-                22.4
-                +
-                random.uniform(
-                    -0.3,
-                    0.3
-                ),
+#             "latitude":
+#                 22.5850
+#                 +
+#                 random.uniform(
+#                     -0.002,
+#                     0.002
+#                 ),
 
-            "longitude":
-                88.2
-                +
-                random.uniform(
-                    -0.3,
-                    0.3
-                )
-        })
+#             "longitude":
+#                 88.3750
+#                 +
+#                 random.uniform(
+#                     -0.002,
+#                     0.002
+#                 )
+#         })
 
-        case_id += 1
-
-
-    # ========================================================
-    # RUN HOTSPOT ANALYSIS
-    # ========================================================
-
-    report = build_hotspot_report(
-        cases,
-        eps_km=1.0,
-        min_samples=5
-    )
+#         case_id += 1
 
 
-    print(
-        json.dumps(
-            report,
-            indent=4
-        )
-    )
+#     # ========================================================
+#     # DISTRICT 2
+#     #
+#     # Different district
+#     # Same crime type
+#     # Mostly morning
+#     # ========================================================
+
+#     for i in range(10):
+
+#         cases.append({
+
+#             "case_id":
+#                 case_id,
+
+#             "district_id":
+#                 2,
+
+#             "crime_major_head_id":
+#                 1,
+
+#             "crime_registered_date":
+#                 f"2026-02-{1 + i:02d}",
+
+#             "hour":
+#                 random.choice(
+#                     [8, 9, 10]
+#                 ),
+
+#             "latitude":
+#                 22.5200
+#                 +
+#                 random.uniform(
+#                     -0.002,
+#                     0.002
+#                 ),
+
+#             "longitude":
+#                 88.3400
+#                 +
+#                 random.uniform(
+#                     -0.002,
+#                     0.002
+#                 )
+#         })
+
+#         case_id += 1
+
+
+#     # ========================================================
+#     # SCATTERED NOISE CASES
+#     #
+#     # These cases are far apart and should not
+#     # normally form a hotspot.
+#     # ========================================================
+
+#     for i in range(10):
+
+#         cases.append({
+
+#             "case_id":
+#                 case_id,
+
+#             "district_id":
+#                 1,
+
+#             "crime_major_head_id":
+#                 1,
+
+#             "crime_registered_date":
+#                 "2026-03-01",
+
+#             "hour":
+#                 random.randint(
+#                     0,
+#                     23
+#                 ),
+
+#             "latitude":
+#                 22.4
+#                 +
+#                 random.uniform(
+#                     -0.3,
+#                     0.3
+#                 ),
+
+#             "longitude":
+#                 88.2
+#                 +
+#                 random.uniform(
+#                     -0.3,
+#                     0.3
+#                 )
+#         })
+
+#         case_id += 1
+
+
+#     # ========================================================
+#     # RUN HOTSPOT ANALYSIS
+#     # ========================================================
+
+#     report = build_hotspot_report(
+#         cases,
+#         eps_km=1.0,
+#         min_samples=5
+#     )
+
+
+#     print(
+#         json.dumps(
+#             report,
+#             indent=4
+#         )
+#     )

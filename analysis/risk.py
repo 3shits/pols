@@ -356,47 +356,47 @@ def build_risk_report(cases, unresolved_status_ids=None, weeks_ahead=FORECAST_WE
     return sorted(report, key=lambda row: -row["risk_score"])
 
 
-if __name__ == "__main__":
-    import json
-    import random
+# if __name__ == "__main__":
+#     import json
+#     import random
 
-    random.seed(7)
-    cases = []
-    case_id = 1
+#     random.seed(7)
+#     cases = []
+#     case_id = 1
 
-    # Station 101, District 1, Crime 1: clearly increasing over 20 weeks
-    for week in range(20):
-        count = 2 + week // 2 + random.randint(0, 1)
-        for _ in range(count):
-            day_offset = week * 7 + random.randint(0, 6)
-            date = f"2026-{1 + day_offset // 30:02d}-{1 + day_offset % 28:02d}"
-            cases.append({
-                "case_id": case_id, "district_id": 1, "unit_id": 101, "crime_major_head_id": 1,
-                "crime_registered_date": date, "case_status_id": random.choice([1, 1, 2])
-            })
-            case_id += 1
+#     # Station 101, District 1, Crime 1: clearly increasing over 20 weeks
+#     for week in range(20):
+#         count = 2 + week // 2 + random.randint(0, 1)
+#         for _ in range(count):
+#             day_offset = week * 7 + random.randint(0, 6)
+#             date = f"2026-{1 + day_offset // 30:02d}-{1 + day_offset % 28:02d}"
+#             cases.append({
+#                 "case_id": case_id, "district_id": 1, "unit_id": 101, "crime_major_head_id": 1,
+#                 "crime_registered_date": date, "case_status_id": random.choice([1, 1, 2])
+#             })
+#             case_id += 1
 
-    # Station 102, same district, same crime type: flat/low volume
-    for week in range(20):
-        for _ in range(1):
-            day_offset = week * 7 + random.randint(0, 6)
-            date = f"2026-{1 + day_offset // 30:02d}-{1 + day_offset % 28:02d}"
-            cases.append({
-                "case_id": case_id, "district_id": 1, "unit_id": 102, "crime_major_head_id": 1,
-                "crime_registered_date": date, "case_status_id": random.choice([1, 2])
-            })
-            case_id += 1
+#     # Station 102, same district, same crime type: flat/low volume
+#     for week in range(20):
+#         for _ in range(1):
+#             day_offset = week * 7 + random.randint(0, 6)
+#             date = f"2026-{1 + day_offset // 30:02d}-{1 + day_offset % 28:02d}"
+#             cases.append({
+#                 "case_id": case_id, "district_id": 1, "unit_id": 102, "crime_major_head_id": 1,
+#                 "crime_registered_date": date, "case_status_id": random.choice([1, 2])
+#             })
+#             case_id += 1
 
-    # Station 103, different district, same crime type: high, mostly unresolved
-    for week in range(20):
-        for _ in range(3):
-            day_offset = week * 7 + random.randint(0, 6)
-            date = f"2026-{1 + day_offset // 30:02d}-{1 + day_offset % 28:02d}"
-            cases.append({
-                "case_id": case_id, "district_id": 2, "unit_id": 103, "crime_major_head_id": 1,
-                "crime_registered_date": date, "case_status_id": 2
-            })
-            case_id += 1
+#     # Station 103, different district, same crime type: high, mostly unresolved
+#     for week in range(20):
+#         for _ in range(3):
+#             day_offset = week * 7 + random.randint(0, 6)
+#             date = f"2026-{1 + day_offset // 30:02d}-{1 + day_offset % 28:02d}"
+#             cases.append({
+#                 "case_id": case_id, "district_id": 2, "unit_id": 103, "crime_major_head_id": 1,
+#                 "crime_registered_date": date, "case_status_id": 2
+#             })
+#             case_id += 1
 
-    report = build_risk_report(cases, unresolved_status_ids={1}, weeks_ahead=4)
-    print(json.dumps(report, indent=2))
+#     report = build_risk_report(cases, unresolved_status_ids={1}, weeks_ahead=4)
+#     print(json.dumps(report, indent=2))

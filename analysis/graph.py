@@ -1102,188 +1102,188 @@ def build_relationship_report(
 # TEST DATA
 # ============================================================
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
-    import json
+#     import json
 
-    cases = [
+#     cases = [
 
-        {
-            "case_id": 1,
-            "district_id": 1,
-            "unit_id": 101,
-            "crime_major_head_id": 1,
-            "location_id": 10,
-            "crime_registered_date": "2026-01-02",
-            "hour": 19
-        },
+#         {
+#             "case_id": 1,
+#             "district_id": 1,
+#             "unit_id": 101,
+#             "crime_major_head_id": 1,
+#             "location_id": 10,
+#             "crime_registered_date": "2026-01-02",
+#             "hour": 19
+#         },
 
-        {
-            "case_id": 2,
-            "district_id": 1,
-            "unit_id": 101,
-            "crime_major_head_id": 1,
-            "location_id": 10,
-            "crime_registered_date": "2026-01-09",
-            "hour": 20
-        },
+#         {
+#             "case_id": 2,
+#             "district_id": 1,
+#             "unit_id": 101,
+#             "crime_major_head_id": 1,
+#             "location_id": 10,
+#             "crime_registered_date": "2026-01-09",
+#             "hour": 20
+#         },
 
-        {
-            "case_id": 3,
-            "district_id": 1,
-            "unit_id": 101,
-            "crime_major_head_id": 1,
-            "location_id": 10,
-            "crime_registered_date": "2026-01-16",
-            "hour": 18
-        },
+#         {
+#             "case_id": 3,
+#             "district_id": 1,
+#             "unit_id": 101,
+#             "crime_major_head_id": 1,
+#             "location_id": 10,
+#             "crime_registered_date": "2026-01-16",
+#             "hour": 18
+#         },
 
-        {
-            "case_id": 4,
-            "district_id": 1,
-            "unit_id": 101,
-            "crime_major_head_id": 1,
-            "location_id": 20,
-            "crime_registered_date": "2026-01-23",
-            "hour": 21
-        },
+#         {
+#             "case_id": 4,
+#             "district_id": 1,
+#             "unit_id": 101,
+#             "crime_major_head_id": 1,
+#             "location_id": 20,
+#             "crime_registered_date": "2026-01-23",
+#             "hour": 21
+#         },
 
-        {
-            "case_id": 5,
-            "district_id": 1,
-            "unit_id": 102,
-            "crime_major_head_id": 2,
-            "location_id": 10,
-            "crime_registered_date": "2026-01-05",
-            "hour": 14
-        },
+#         {
+#             "case_id": 5,
+#             "district_id": 1,
+#             "unit_id": 102,
+#             "crime_major_head_id": 2,
+#             "location_id": 10,
+#             "crime_registered_date": "2026-01-05",
+#             "hour": 14
+#         },
 
-        {
-            "case_id": 6,
-            "district_id": 2,
-            "unit_id": 201,
-            "crime_major_head_id": 1,
-            "location_id": 30,
-            "crime_registered_date": "2026-02-01",
-            "hour": 22
-        },
+#         {
+#             "case_id": 6,
+#             "district_id": 2,
+#             "unit_id": 201,
+#             "crime_major_head_id": 1,
+#             "location_id": 30,
+#             "crime_registered_date": "2026-02-01",
+#             "hour": 22
+#         },
 
-        {
-            "case_id": 7,
-            "district_id": 2,
-            "unit_id": 202,
-            "crime_major_head_id": 3,
-            "location_id": 40,
-            "crime_registered_date": "2026-02-08",
-            "hour": 10
-        },
+#         {
+#             "case_id": 7,
+#             "district_id": 2,
+#             "unit_id": 202,
+#             "crime_major_head_id": 3,
+#             "location_id": 40,
+#             "crime_registered_date": "2026-02-08",
+#             "hour": 10
+#         },
 
-        {
-            "case_id": 8,
-            "district_id": 1,
-            "unit_id": 101,
-            "crime_major_head_id": 2,
-            "location_id": 20,
-            "crime_registered_date": "2026-02-12",
-            "hour": 15
-        },
+#         {
+#             "case_id": 8,
+#             "district_id": 1,
+#             "unit_id": 101,
+#             "crime_major_head_id": 2,
+#             "location_id": 20,
+#             "crime_registered_date": "2026-02-12",
+#             "hour": 15
+#         },
 
-        {
-            "case_id": 9,
-            "district_id": 1,
-            "unit_id": 103,
-            "crime_major_head_id": 1,
-            "location_id": 50,
-            "crime_registered_date": "2026-02-14",
-            "hour": None
-        },
+#         {
+#             "case_id": 9,
+#             "district_id": 1,
+#             "unit_id": 103,
+#             "crime_major_head_id": 1,
+#             "location_id": 50,
+#             "crime_registered_date": "2026-02-14",
+#             "hour": None
+#         },
 
-        {
-            "case_id": 10,
-            "district_id": 3,
-            "unit_id": 301,
-            "crime_major_head_id": 4,
-            "location_id": 60,
-            "crime_registered_date": "2026-02-15",
-            "hour": 9
-        }
-    ]
+#         {
+#             "case_id": 10,
+#             "district_id": 3,
+#             "unit_id": 301,
+#             "crime_major_head_id": 4,
+#             "location_id": 60,
+#             "crime_registered_date": "2026-02-15",
+#             "hour": 9
+#         }
+#     ]
 
-    accused = [
+#     accused = [
 
-        {
-            "case_id": 1,
-            "person_id": 101
-        },
+#         {
+#             "case_id": 1,
+#             "person_id": 101
+#         },
 
-        {
-            "case_id": 2,
-            "person_id": 101
-        },
+#         {
+#             "case_id": 2,
+#             "person_id": 101
+#         },
 
-        {
-            "case_id": 3,
-            "person_id": 101
-        },
+#         {
+#             "case_id": 3,
+#             "person_id": 101
+#         },
 
-        {
-            "case_id": 3,
-            "person_id": 102
-        },
+#         {
+#             "case_id": 3,
+#             "person_id": 102
+#         },
 
-        {
-            "case_id": 4,
-            "person_id": 101
-        },
+#         {
+#             "case_id": 4,
+#             "person_id": 101
+#         },
 
-        {
-            "case_id": 4,
-            "person_id": 102
-        },
+#         {
+#             "case_id": 4,
+#             "person_id": 102
+#         },
 
-        {
-            "case_id": 5,
-            "person_id": 102
-        },
+#         {
+#             "case_id": 5,
+#             "person_id": 102
+#         },
 
-        {
-            "case_id": 6,
-            "person_id": 103
-        },
+#         {
+#             "case_id": 6,
+#             "person_id": 103
+#         },
 
-        {
-            "case_id": 7,
-            "person_id": 103
-        },
+#         {
+#             "case_id": 7,
+#             "person_id": 103
+#         },
 
-        {
-            "case_id": 8,
-            "person_id": 102
-        },
+#         {
+#             "case_id": 8,
+#             "person_id": 102
+#         },
 
-        {
-            "case_id": 9,
-            "person_id": 101
-        },
+#         {
+#             "case_id": 9,
+#             "person_id": 101
+#         },
 
-        {
-            "case_id": 10,
-            "person_id": 104
-        }
-    ]
+#         {
+#             "case_id": 10,
+#             "person_id": 104
+#         }
+#     ]
 
-    report = build_relationship_report(
+#     report = build_relationship_report(
 
-        accused=accused,
+#         accused=accused,
 
-        cases=cases,
+#         cases=cases,
 
-        repeat_threshold=3
-    )
+#         repeat_threshold=3
+#     )
 
-    print(
-        json.dumps(
-            report,
-            indent=2
-        )
-    )
+#     print(
+#         json.dumps(
+#             report,
+#             indent=2
+#         )
+#     )
