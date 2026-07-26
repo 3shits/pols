@@ -1,9 +1,15 @@
 {
-  "command": "npx ts-node-dev --respawn --transpile-only src/server.ts",
-  "stack": "nodejs20",
-  "env_variables": {},
+  "command": "npx tsx src/server.ts",
   "build_path": "./",
-
+  "stack": "node22",
+  "env_variables": {
+    "DB_HOST": "localhost",
+    "DB_PORT": "5434",
+    "DB_NAME": "polsdb",
+    "DB_USER": "postgres",
+    "DB_PASSWORD": "1234",
+    "DB_SSL": "false"
+  },
   "memory": 256,
   "scripts": {}
 }

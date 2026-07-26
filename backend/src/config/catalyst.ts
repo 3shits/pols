@@ -2,14 +2,14 @@ import type { Request } from 'express';
 // npm i zcatalyst-sdk-node
 import catalyst from 'zcatalyst-sdk-node';
 
-const STRATUS_BUCKET_NAME = process.env.CATALYST_STRATUS_BUCKET ?? 'pols-excel';
+const STRATUS_BUCKET_NAME = process.env.CATALYST_STRATUS_BUCKET ?? 'pols-excels';
 
 /**
  * Catalyst's Node SDK is request-scoped: it reads the execution context
  * (auth, project scope) off the incoming request, so we initialize per-request
  * rather than once at module load.
  *
- * Your 'pols-excel' bucket is ACL'd to "authenticated Catalyst users only".
+ * Your 'pols-excels' bucket is ACL'd to "authenticated Catalyst users only".
  * That ACL governs direct/user-scope access (e.g. a browser calling Stratus
  * itself). This backend talks to Stratus server-to-server, so we initialize
  * with { scope: 'admin' } explicitly - Admin scope has unrestricted access
