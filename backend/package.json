@@ -1,0 +1,32 @@
+{
+  "name": "fir-backend",
+  "version": "1.0.0",
+  "description": "Prototype CRUD + Excel-import backend for Karnataka Police FIR System (Express + TypeScript + PostgreSQL)",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "db:init": "node -e \"require('dotenv').config(); const {Pool}=require('pg'); const fs=require('fs'); const pool=new Pool({host:process.env.DB_HOST,database:process.env.DB_NAME,user:process.env.DB_USER,password:process.env.DB_PASSWORD,port:process.env.DB_PORT?Number(process.env.DB_PORT):5432}); pool.query(fs.readFileSync('./sql/schema.sql','utf8')).then(()=>{console.log('Schema applied');process.exit(0)}).catch(e=>{console.error(e);process.exit(1)})\""
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "exceljs": "^4.4.0",
+    "express": "^4.19.2",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "pg": "^8.12.0",
+    "zcatalyst-sdk-node": "^2.5.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/morgan": "^1.9.9",
+    "@types/multer": "^1.4.11",
+    "@types/node": "^20.14.11",
+    "@types/pg": "^8.11.6",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.5.4"
+  }
+}
