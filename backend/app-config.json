@@ -1,0 +1,9 @@
+{
+  "command": "npx ts-node-dev --respawn --transpile-only src/server.ts",
+  "stack": "nodejs20",
+  "env_variables": {},
+  "build_path": "./",
+
+  "memory": 256,
+  "scripts": {}
+}
