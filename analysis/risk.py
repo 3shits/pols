@@ -3,7 +3,7 @@ from math import isnan
 
 from scipy.stats import linregress # type: ignore
 
-from pols.analysis.trend import (
+from trend import (
     build_weekly_series,
     get_mean,
     get_stdev,
