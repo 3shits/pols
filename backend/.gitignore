@@ -1,3 +1,4 @@
 node_modules/
 .catalystrc
 package-lock.json
+catalyst-debug.json
